@@ -12,7 +12,7 @@ artifacts:
             - autoware.repos
           import_path: src
       base_container_image:
-        from: ghcr.io/oguzkaganozt/autoware-openadk:ces-planning-after-aarch64
+        from: ghcr.io/oguzkaganozt/autoware-openadk:planning-demo-before-ota-aarch64
       phases:
         - name: init
           exec: "true"
@@ -66,9 +66,8 @@ simulations:
             package_name: autoware_launch
             file_name: planning_simulator.launch.xml
             arguments:
+              architecture_type: awf/universe
               sensor_model: sample_sensor_kit
               vehicle_model: sample_vehicle
               map_path: ${map_path}
               scenario_simulation: "true"
-              use_foa: "false"
-              perception/enable_traffic_light: "false"
